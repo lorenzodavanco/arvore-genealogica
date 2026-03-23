@@ -67,9 +67,9 @@ PONT buscarFam(PONT raiz, string nome) {
 PONT inserirAux(PONT raiz, PONT pessoa, string nome, parentesco pa) {
     if (pa==pai || pa==mae) {
         if (pessoa) return NULL; // se ja  tem pai/mae
-    else {
-        PONT possivel = buscarFam(raiz,nome); // vai buscar se ja existe
-        if (possivel) return possivel;
+        else {
+          PONT possivel = buscarFam(raiz,nome); // vai buscar se ja existe em outro lugar da arvore
+          if (possivel) return possivel;
         }
     }
     PONT novo = criaNo();
@@ -90,8 +90,10 @@ bool inserir(PONT raiz, string origin, string nome, parentesco pa) { //
             return true;
     }
     novo = inserirAux(raiz,origem->irmaos,nome, pa);
+    origem->irmaos = novo;
     return true;
 }
+
 void exibirAux(PONT raiz) {
     cout << "Nome: " << raiz->nome << endl;
     cout << "Sobrenome: " << raiz->sobrenome << endl;
