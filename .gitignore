@@ -1,0 +1,13 @@
+# Ignorar executáveis
+*.exe
+*.out
+*.app
+
+# Ignorar pastas de compilação
+output/
+bin/
+obj/
+
+# Ignorar arquivos de configuração de IDE (opcional, mas bom)
+.vscode/
+.idea/
