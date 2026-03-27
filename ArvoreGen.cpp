@@ -126,17 +126,50 @@ void exibir(PONT raiz) {
 }
 
 int main() {
-    PONT eu;
-    eu = inicializar();
-    exibir(eu);
-    inserir(eu,"lorenzo","alexandre",pai);
-    inserir(eu,"lorenzo","giovana",mae);
-    inserir(eu,"lorenzo","isabela",irmao);
-    inserir(eu,"giovana","oneide",mae); 
-    inserir(eu,"isabela","aline",irmao);
-    inserir(eu,"aline","ezequiel",pai); 
-    inserir(eu,"isabela","giovana",mae); // parou aqui
-    exibir(eu);
-    exibir(eu);
+    PONT eu = inicializar();
+    int opcao;
+    string quem, par, nomeParente;
 
-};
+    while (true) {
+        cout << "\n--- MENU ARVORE ---" << endl;
+        cout << "1. Inserir parente" << endl;
+        cout << "2. Exibir arvore" << endl;
+        cout << "3. Sair" << endl;
+        cout << "Escolha uma opcao: ";
+        cin >> opcao;
+
+        if (opcao == 3) {
+            cout << "Saindo..." << endl;
+            break;
+        }
+
+        switch (opcao) {
+            case 1:
+                cout << "Essa pessoa eh parente de quem? (Digite o nome): " << endl;
+                cin >> quem;
+                cout << "Insira o parentesco (pai, mae ou irmao): " << endl;
+                cin >> par;
+                cout << "Insira o nome do parente previamente: " << endl;
+                cin >> nomeParente;
+                if (par == "pai") {
+                    inserir(eu, quem, nomeParente, pai);
+                } else if (par == "mae") {
+                    inserir(eu, quem, nomeParente, mae);
+                } else if (par == "irmao") {
+                    inserir(eu, quem, nomeParente, irmao);
+                } else {
+                    cout << "Parentesco invalido!" << endl;
+                }
+                break;
+
+            case 2:
+                cout << "Arvore atual: " << endl;
+                exibir(eu);
+                break;
+
+            default:
+                cout << "Opcao invalida! Tente novamente." << endl;
+        }
+    }
+    return 0;
+}
