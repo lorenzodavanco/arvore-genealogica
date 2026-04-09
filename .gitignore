@@ -8,6 +8,6 @@ output/
 bin/
 obj/
 
-# Ignorar arquivos de configuração de IDE (opcional, mas bom)
+# Ignorar arquivos de configuração de IDE
 .vscode/
 .idea/
